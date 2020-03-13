@@ -1,0 +1,7 @@
+<launch>
+  <arg name="filename" default="test2.bag"/>
+  <arg name="loop" default="true"/>
+
+  <node unless="$(arg loop)" pkg="rosbag" type="play" name="player"  output="screen" args="--clock $(arg filename)"/>
+  <node if="$(arg loop)" pkg="rosbag" type="play" name="player"  output="screen" args="--clock -l $(arg filename)"/>
+</launch>

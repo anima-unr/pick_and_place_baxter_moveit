@@ -1,0 +1,10 @@
+<launch>
+
+  <param name="root_frame" type="str" value="base"/>
+  <param name="manip_frame" type="str" value="right_gripper"/>
+
+  <node name="NodeTest" pkg="table_setting_demo" type="multi_robot_demo" output="screen">
+  	<rosparam file="$(find robotics_task_tree_eval)/test_network.yaml"/>    
+    <param name="robot" value="BAXTER"/>
+  </node>
+</launch>

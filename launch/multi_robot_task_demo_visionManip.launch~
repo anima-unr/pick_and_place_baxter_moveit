@@ -1,0 +1,6 @@
+<launch>
+  <node name="NodeTest" pkg="table_setting_demo" type="multi_robot_demo_visionManip" output="screen">
+  	<rosparam file="$(find table_setting_demo)/params/NodeDescription.yaml"/>    
+    <param name="robot" value="PR2"/>
+  </node>
+</launch>

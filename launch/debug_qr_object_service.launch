@@ -1,0 +1,28 @@
+<launch>
+  <arg name="use-pr2" default="false"/>
+  <arg name="playback" default="false"/>
+  <arg name="bagfile" default="test.bag"/>
+
+  <arg if="$(arg use-pr2)" name="camera_topic" default="/head_mount_kinect/rgb/image_raw"/>
+  <arg unless="$(arg use-pr2)" name="camera_topic" default="/usb_cam/image_raw"/>
+
+  <group unless="$(arg playback)">
+    <include unless="$(arg use-pr2)" file="$(find table_setting_demo)/launch/webcam.launch" />
+  </group>
+
+  <group if="$(arg playback)">
+    <include file="$(find table_setting_demo)/launch/rosbag_webcam.launch" >
+      <arg name="filename" value="$(arg bagfile)"/>
+    </include>
+  </group>
+
+  <arg name="image_file" default="qr_bowl_256.jpg"/>
+  <arg name="folder" default="/home/luke/Pictures/qr_bowl"/>
+
+  <node name="QrService" launch-prefix="ddd --args" pkg="table_setting_demo" type="qr_object_track_service" output="screen">
+    <param name="camera_topic" value="$(arg camera_topic)" />
+    <param name="image_file" value="$(arg image_file)" />
+    <rosparam file="$(arg folder)/bbox.yaml"/>
+    <param name="folder" value="$(arg folder)"/>
+  </node>
+</launch>

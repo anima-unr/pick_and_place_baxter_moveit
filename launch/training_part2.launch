@@ -1,0 +1,9 @@
+<launch>
+  <arg name="use-pr2" default="true"/>
+
+  <include file="$(find table_setting_demo)/launch/qr_object_service.launch">
+    <arg name="use-pr2" value="$(arg use-pr2)"/>
+  </include> 
+
+  <node name="Object_Transform" pkg="table_setting_demo" type="object_trans_service" output="screen"/>
+</launch>

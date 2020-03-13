@@ -1,0 +1,5 @@
+<launch>
+  <node name="Table_Setting" pkg="table_setting_demo" type="table_setting_demo" output="screen" launch-prefix="ddd --args">
+    <rosparam file="$(find table_setting_demo)/params/NodeDescription.yaml"/>
+  </node>
+</launch>

@@ -1,0 +1,55 @@
+<launch>
+
+  <!-- ##############################################
+  	   Copied from /opt/ros/indigo/share/pr2_moveit_config/launch/demo.launch 
+       Launches rviz
+       ##############################################
+  -->0
+
+  <arg name="db" default="false" />
+  <arg name="debug" default="false" />
+
+  <include file="$(find pr2_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <include file="$(find pr2_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="false"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+  <arg name="config" default="false" />
+  <arg unless="$(arg config)" name="command_args" default="" />
+  <arg     if="$(arg config)" name="command_args" default="-d ~/catkin_ws/src/Distributed_Collaborative_Task_Tree/table_setting_demo/launch/moveit_test.rviz" />
+  
+  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
+  args="$(arg command_args)" output="screen">
+    <rosparam command="load" file="$(find pr2_moveit_config)/config/kinematics.yaml"/>
+  </node>
+
+
+  <!-- ##############################################
+       Copied from /opt/ros/indigo/share/pr2_gazebo/launch/pr2_empty_world.launch
+       ##############################################
+  -->
+
+  <!-- <include file="$(find pr2_gazebo)/launch/pr2_empty_world.launch">
+  </include> -->
+
+
+  <!-- ##############################################
+       Stuff that I added to run Luke's code
+       ##############################################
+  -->
+  <!-- run pr2_pick_service script
+  <node name="pick_service" pkg="table_setting_demo" type="pr2_pick_service" output="screen">
+  </node>   -->
+
+</launch>

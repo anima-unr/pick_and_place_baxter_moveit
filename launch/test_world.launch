@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find pr2_gazebo)/launch/pr2_empty_world.launch"/>
+	<include file="$(find table_setting_demo)/launch/test.launch"/>
+
+	<!-- run python node to lift torso -->
+
+	<node pkg="tilt_scan" type="torso_lift.py" name="torso_lift" output="screen"/>
+</launch>

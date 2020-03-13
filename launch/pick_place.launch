@@ -1,0 +1,4 @@
+<launch>
+	<include file="$(find remote_mutex)/launch/table_setting_mutex.launch"/>
+	<node pkg="table_setting_demo" type="pr2_pick_service" name="pick_place" args="-r $(find table_setting_demo)/twoObj.txt" output="screen"/>
+</launch>

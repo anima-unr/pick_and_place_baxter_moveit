@@ -1,0 +1,22 @@
+<launch>
+
+    <arg name="marker_size"          default="5.0" />
+    <arg name="max_new_marker_error" default="0.05" />
+    <arg name="max_track_error"      default="0.05" />
+
+    <arg name="cam_image_topic"      default="/kinect2/hd/image_color" />
+    <arg name="cam_info_topic"       default="/kinect2/hd/camera_info" />
+    <arg name="output_frame"         default="/kinect2_rgb_optical_frame" />
+
+    <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen">
+		<param name="marker_size"           type="double" value="$(arg marker_size)" />
+		<param name="max_new_marker_error"  type="double" value="$(arg max_new_marker_error)" />
+		<param name="max_track_error"       type="double" value="$(arg max_track_error)" />
+		<param name="output_frame"          type="string" value="$(arg output_frame)" />
+
+		<remap from="camera_image"  to="$(arg cam_image_topic)" />
+		<remap from="camera_info"   to="$(arg cam_info_topic)" />
+	</node>
+	<node name="link1_broadcaster" pkg="tf2_ros" type="static_transform_publisher" args=".2114779 .-1139141 .9292166 -0.6834452 0.69439 -0.155173 0.16323 base kinect2_rgb_optical_frame" />
+    
+</launch>

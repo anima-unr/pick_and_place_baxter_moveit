@@ -1,0 +1,9 @@
+<launch>
+
+  <param name="root_frame" type="str" value="base"/>
+  <param name="manip_frame" type="str" value="right_gripper"/>
+
+  <node name="Table_Setting" pkg="table_setting_demo" type="table_setting_demo" output="screen">
+    <rosparam file="$(find table_setting_demo)/params/NodeDescription.yaml"/>
+  </node>
+</launch>

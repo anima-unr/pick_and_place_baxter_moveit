@@ -1,0 +1,213 @@
+NodeList: ['ROOT_4_0_000', 'AND_2_0_001', 'THEN_0_0_002', 'PLACE_3_0_003', 'AND_2_0_004', 'PLACE_3_0_005', 'PLACE_3_0_006', 'THEN_0_0_007', 'PLACE_3_0_008', 'OR_1_0_009', 'PLACE_3_0_010', 'PLACE_3_0_011',
+          'ROOT_4_1_012', 'AND_2_1_013', 'THEN_0_1_014', 'PLACE_3_1_015', 'AND_2_1_016', 'PLACE_3_1_017', 'PLACE_3_1_018', 'THEN_0_1_019', 'PLACE_3_1_020', 'OR_1_1_021', 'PLACE_3_1_022', 'PLACE_3_1_023']
+Nodes: 
+  ROOT_4_0_000:
+    mask:
+      type: 4
+      robot: 0
+      node: 0
+    parent: 'NONE'
+    children: ['AND_2_0_001']
+    peers: ['ROOT_4_1_012']
+  AND_2_0_001:
+    mask:
+      type: 2
+      robot: 0
+      node: 1
+    parent: ROOT_4_0_000
+    children: ['THEN_0_0_002', 'THEN_0_0_007']
+    peers: ['AND_2_1_013']
+  THEN_0_0_002:
+    mask:
+      type: 0
+      robot: 0
+      node: 2
+    parent: AND_2_0_001
+    children: ['PLACE_3_0_003', 'AND_2_0_004']
+    peers: ['THEN_0_1_014']
+  PLACE_3_0_003:
+    mask:
+      type: 6
+      robot: 0
+      node: 3
+    parent: THEN_0_0_002
+    # children: ['NONE']
+    peers: ['PLACE_3_1_015']
+    object: Cup
+  AND_2_0_004:
+    mask:
+      type: 2
+      robot: 0
+      node: 4
+    parent: THEN_0_0_002
+    children: ['PLACE_3_0_005', 'PLACE_3_0_006']
+    peers: ['AND_2_1_016']
+  PLACE_3_0_005:
+    mask:
+      type: 6
+      robot: 0
+      node: 5
+    parent: AND_2_0_004
+    # children: ['NONE']
+    peers: ['PLACE_3_1_017']
+    object: Sugar
+  PLACE_3_0_006:
+    mask:
+      type: 6
+      robot: 0
+      node: 6
+    parent: AND_2_0_004
+    # children: ['NONE']
+    peers: ['PLACE_3_1_018']
+    object: Tea_Pot
+  THEN_0_0_007:
+    mask:
+      type: 0
+      robot: 0
+      node: 7
+    parent: AND_2_0_001
+    children: ['PLACE_3_0_008', 'OR_1_0_009']
+    peers: ['THEN_0_1_019']
+  PLACE_3_0_008:
+    mask:
+      type: 6
+      robot: 0
+      node: 8
+    parent: THEN_0_0_007
+    # children: ['NONE']
+    peers: ['PLACE_3_1_020']
+    object: Apple
+  OR_1_0_009:
+    mask:
+      type: 1
+      robot: 0
+      node: 9
+    parent: THEN_0_0_007
+    children: ['PLACE_3_0_010', 'PLACE_3_0_011']
+    peers: ['OR_1_1_021']
+  PLACE_3_0_010:
+    mask:
+      type: 6
+      robot: 0
+      node: 10
+    parent: OR_1_0_009
+    # children: ['NONE']
+    peers: ['PLACE_3_1_022', 'PLACE_3_1_023']
+    object: Sandwich
+  PLACE_3_0_011:
+    mask:
+      type: 6
+      robot: 0
+      node: 11
+    parent: OR_1_0_009
+    # children: ['NONE']
+    peers: ['PLACE_3_1_023', 'PLACE_3_1_022']
+    object: Burger
+
+
+# ---------------------------------------------------------------------------
+
+  ROOT_4_1_012:
+    mask:
+      type: 4
+      robot: 1
+      node: 13
+    parent: 'NONE'
+    children: ['AND_2_1_013']
+    peers: ['ROOT_4_1_000']
+  AND_2_1_013:
+    mask:
+      type: 2
+      robot: 1
+      node: 14
+    parent: ROOT_4_1_012
+    children: ['THEN_0_1_014', 'THEN_0_1_019']
+    peers: ['AND_2_0_001']
+  THEN_0_1_014:
+    mask:
+      type: 0
+      robot: 1
+      node: 15
+    parent: AND_2_1_013
+    children: ['PLACE_3_1_015', 'AND_2_1_016']
+    peers: ['THEN_0_0_002']
+  PLACE_3_1_015:
+    mask:
+      type: 6
+      robot: 1
+      node: 16
+    parent: THEN_0_1_014
+    # children: ['NONE']
+    peers: ['PLACE_3_0_003']
+    object: Cup
+  AND_2_1_016:
+    mask:
+      type: 2
+      robot: 1
+      node: 17
+    parent: THEN_0_1_014
+    children: ['PLACE_3_1_017', 'PLACE_3_1_018']
+    peers: ['AND_2_0_004']
+  PLACE_3_1_017:
+    mask:
+      type: 6
+      robot: 1
+      node: 18
+    parent: AND_2_1_016
+    # children: ['NONE']
+    peers: ['PLACE_3_0_005']
+    object: Sugar
+  PLACE_3_1_018:
+    mask:
+      type: 6
+      robot: 1
+      node: 19
+    parent: AND_2_1_016
+    # children: ['NONE']
+    peers: ['PLACE_3_0_006']
+    object: Tea_Pot
+  THEN_0_1_019:
+    mask:
+      type: 0
+      robot: 1
+      node: 20
+    parent: AND_2_1_013
+    children: ['PLACE_3_1_020', 'OR_1_1_021']
+    peers: ['THEN_0_0_007']
+  PLACE_3_1_020:
+    mask:
+      type: 6
+      robot: 1
+      node: 21
+    parent: THEN_0_1_019
+    # children: ['NONE']
+    peers: ['PLACE_3_0_008']
+    object: Apple
+  OR_1_1_021:
+    mask:
+      type: 1
+      robot: 1
+      node: 22
+    parent: THEN_0_1_019
+    children: ['PLACE_3_1_022', 'PLACE_3_1_023']
+    peers: ['OR_1_0_009']
+  PLACE_3_1_022:
+    mask:
+      type: 6
+      robot: 1
+      node: 23
+    parent: OR_1_1_021
+    # children: ['NONE']
+    peers: ['PLACE_3_0_010', 'PLACE_3_0_011']
+    object: Sanwich
+  PLACE_3_1_023:
+    mask:
+      type: 6
+      robot: 1
+      node: 24
+    parent: OR_1_1_021
+    # children: ['NONE']
+    peers: ['PLACE_3_0_011', 'PLACE_3_0_010']
+    object: Burger
+
+
