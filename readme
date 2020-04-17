@@ -1,4 +1,4 @@
-This instructions will able to run the simulator to pick four objects from a given position and place them in a given position. Objects are shown as markers right now in the rviz. 
+This instructions will be able to run the simulator to pick four objects from a given position and place them in a given position. Objects are shown as markers right now in the rviz. 
 
 Put the text file "position_record.txt" in workspace folder.
 
